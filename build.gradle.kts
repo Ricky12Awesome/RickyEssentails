@@ -4,6 +4,8 @@ val serializationVersion: String by project
 val coroutinesVersion: String by project
 val exposedVersion: String by project
 val paperVersion: String by project
+val commandAPIVersion: String by project
+val vaultVersion: String by project
 
 plugins {
   kotlin("jvm") version "1.6.10"
@@ -14,6 +16,8 @@ plugins {
 repositories {
   mavenCentral()
   maven("https://papermc.io/repo/repository/maven-public/")
+  maven("https://repo.codemc.org/repository/maven-public/")
+  maven("https://jitpack.io")
 }
 
 dependencies {
@@ -39,6 +43,12 @@ dependencies {
 
   // PaperMC https://papermc.io/
   compileOnly("io.papermc.paper:paper-api:$paperVersion")
+
+  // CommandAPI https://commandapi.jorel.dev/
+  compileOnly("dev.jorel.CommandAPI:commandapi-core:$commandAPIVersion")
+
+  // Vault https://github.com/MilkBowl/VaultAPI
+  compileOnly("com.github.MilkBowl:VaultAPI:$vaultVersion")
 }
 
 tasks {
