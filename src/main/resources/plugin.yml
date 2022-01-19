@@ -1,0 +1,5 @@
+api-version: 1.18
+name: RickyEssentials
+author: Ricky12Awesome
+version: 1
+main: me.ricky.essentials.RickyEssentials
