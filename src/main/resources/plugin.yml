@@ -3,4 +3,4 @@ name: RickyEssentials
 author: Ricky12Awesome
 version: 1
 main: me.ricky.essentials.RickyEssentials
-depend: [Vault, CommandAPI]
+depend: [Vault, CommandAPI, LuckPerms]

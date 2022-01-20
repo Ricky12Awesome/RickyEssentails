@@ -6,6 +6,7 @@ val exposedVersion: String by project
 val paperVersion: String by project
 val commandAPIVersion: String by project
 val vaultVersion: String by project
+val luckPermsVersion: String by project
 
 plugins {
   kotlin("jvm") version "1.6.10"
@@ -49,6 +50,9 @@ dependencies {
 
   // Vault https://github.com/MilkBowl/VaultAPI
   compileOnly("com.github.MilkBowl:VaultAPI:$vaultVersion")
+
+  // LuchPerms https://luckperms.net/
+  compileOnly("net.luckperms:api:$luckPermsVersion")
 }
 
 tasks {
