@@ -4,13 +4,13 @@ services:
   test-server:
     image: itzg/minecraft-server
     ports:
-      - "25565:25565"
+      - "25566:25566"
     environment:
       # Server
       EULA: "TRUE"
       TYPE: "PAPER"
       VERSION: "1.18.1"
-      MEMORY: 4G
+      MEMORY: 2G
 
       # Server Properties
       SEED: 6735220132446817564

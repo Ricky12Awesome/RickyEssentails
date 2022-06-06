@@ -52,7 +52,7 @@ dependencies {
   compileOnly("com.github.MilkBowl:VaultAPI:$vaultVersion")
 
   // LuchPerms https://luckperms.net/
-  compileOnly("net.luckperms:api:$luckPermsVersion")
+  //  compileOnly("net.luckperms:api:$luckPermsVersion")
 }
 
 tasks {
