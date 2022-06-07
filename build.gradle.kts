@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 val serializationVersion: String by project
 val coroutinesVersion: String by project
 val exposedVersion: String by project
@@ -9,8 +7,8 @@ val vaultVersion: String by project
 val luckPermsVersion: String by project
 
 plugins {
-  kotlin("jvm") version "1.6.10"
-  kotlin("plugin.serialization") version "1.6.10"
+  kotlin("jvm") version "1.6.21"
+  kotlin("plugin.serialization") version "1.6.21"
   id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
@@ -46,7 +44,7 @@ dependencies {
   compileOnly("io.papermc.paper:paper-api:$paperVersion")
 
   // CommandAPI https://commandapi.jorel.dev/
-  compileOnly("dev.jorel.CommandAPI:commandapi-core:$commandAPIVersion")
+  compileOnly("dev.jorel:commandapi-core:$commandAPIVersion")
 
   // Vault https://github.com/MilkBowl/VaultAPI
   compileOnly("com.github.MilkBowl:VaultAPI:$vaultVersion")

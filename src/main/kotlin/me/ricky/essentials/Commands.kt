@@ -1,7 +1,9 @@
 package me.ricky.essentials
 
 import dev.jorel.commandapi.CommandAPICommand
+import dev.jorel.commandapi.arguments.ArgumentSuggestions
 import dev.jorel.commandapi.arguments.ChatColorArgument
+import dev.jorel.commandapi.arguments.SafeSuggestions
 import dev.jorel.commandapi.arguments.StringArgument
 import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
@@ -15,6 +17,7 @@ import org.bukkit.plugin.Plugin
 import kotlin.time.Duration.Companion.seconds
 
 fun toggleVanillaChatCommand(plugin: Plugin) {
+
   CommandAPICommand("togglevanillachat")
     .executesPlayer(PlayerCommandExecutor { player, args ->
       val useVanillaChatValue = player?.persistentDataContainer?.getOrDefault(
@@ -48,7 +51,7 @@ fun nameColorCommand(plugin: Plugin) {
   val suggest = (ChatColor.values().toList() - blacklist).toTypedArray()
 
   CommandAPICommand("namecolor")
-    .withArguments(ChatColorArgument("color").replaceWithSafeSuggestions { suggest })
+    .withArguments(ChatColorArgument("color").replaceSafeSuggestions(SafeSuggestions.suggest(*suggest)))
     .executesPlayer(PlayerCommandExecutor { player, args ->
       val color = when (args[0] as ChatColor) {
         ChatColor.BLACK -> NamedTextColor.BLACK
@@ -84,7 +87,10 @@ fun nameColorCommand(plugin: Plugin) {
 
 fun statsCommand() {
   CommandAPICommand("stats")
-    .withArguments(StringArgument("player").replaceSuggestions { arrayOfOfflinePlayersNames() })
+    .withArguments(
+      StringArgument("player")
+        .replaceSuggestions(ArgumentSuggestions.strings(*arrayOfOfflinePlayersNames()))
+    )
     .executes(CommandExecutor { sender, args ->
       val name = args[0] as String
       val player = Bukkit.getOfflinePlayerIfCached(name)

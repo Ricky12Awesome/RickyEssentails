@@ -12,7 +12,7 @@ class PlayerStats(
   val mobKills: Int,
   val playerKills: Int,
 ) {
-  constructor(player: OfflinePlayer): this(
+  constructor(player: OfflinePlayer) : this(
     online = player.isOnline,
     lastLogin = player.lastLogin,
     lastSeen = player.lastSeen,

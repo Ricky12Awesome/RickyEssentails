@@ -1,6 +1,5 @@
 package me.ricky.essentials
 
-import io.papermc.paper.chat.ChatRenderer
 import io.papermc.paper.event.player.AsyncChatEvent
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextReplacementConfig
@@ -105,9 +104,10 @@ class BetterChat(
 
         Component.empty()
           .append(Component.text("<"))
-          .append(sourceDisplayName
-            .hoverEvent(hoverEvent)
-            .clickEvent(ClickEvent.suggestCommand("/tell ${source.name}"))
+          .append(
+            sourceDisplayName
+              .hoverEvent(hoverEvent)
+              .clickEvent(ClickEvent.suggestCommand("/tell ${source.name}"))
           )
           .append(Component.text("> "))
           .append(message)
